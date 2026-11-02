@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Hanken Grotesk", "Noto Sans JP", "Noto Sans SC", "Noto Sans KR", system-ui, sans-serif;
+  --color-pine-900: #10201a;
+  --color-pine-800: #14382f;
+  --color-pine-700: #1e5a47;
+  --color-pine-100: #dcebe4;
+  --color-night-raised: #1c3329;
+  --color-ink-inverse-muted: #b7c4bc;
+  --color-paper: #f5f2ea;
+  --color-card: #ffffff;
+  --color-ink: #17201c;
+  --color-muted: #646b65;
+  --color-edge: #e2dccd;
+  --color-lantern: #e39b32;
+  --color-lantern-700: #915e14;
+  --color-lantern-soft: #fbe7cd;
+  --color-ok: #2d8a57;
+  --color-ok-soft: #d9efe2;
+  --color-bad: #c0432b;
+  --color-bad-soft: #f7ddd6;
+  --color-line: #06c755;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-paper);
+  background-image: radial-gradient(circle at 12% 8%, rgb(227 155 50 / 0.1), transparent 38%),
+    radial-gradient(circle at 90% 92%, rgb(16 32 26 / 0.1), transparent 42%);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-lantern);
+  outline-offset: 2px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(45 138 87 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgb(45 138 87 / 0);
+  }
+}
+
+@keyframes step-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(227 155 50 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgb(227 155 50 / 0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.35s ease-out both;
+}
+
+.live-dot {
+  animation: live-pulse 1.8s ease-in-out infinite;
+}
+
+.step-pulse {
+  animation: step-pulse 1.8s ease-in-out infinite;
+}
+
+.chat-panel {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chat-backdrop {
+  transition: opacity 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in,
+  .live-dot,
+  .step-pulse {
+    animation: none;
+  }
+
+  .chat-panel,
+  .chat-backdrop {
+    transition: none;
+  }
+}

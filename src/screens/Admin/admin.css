@@ -1,0 +1,238 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--bg-canvas);
+  color: var(--ink-primary);
+}
+
+.admin__title {
+  font: var(--text-display);
+  font-size: 20px;
+}
+
+.admin__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 16px;
+  border-bottom: 1px solid var(--line-default);
+  background: var(--bg-surface);
+}
+
+.admin__sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin__tab {
+  padding: 11px 14px;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 0 10px 10px 0;
+  background: transparent;
+  font: var(--text-body-medium);
+  text-align: left;
+  color: var(--ink-primary);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.admin__tab:hover {
+  background: var(--bg-canvas);
+}
+
+.admin__tab--active {
+  border-left-color: var(--brand-primary);
+  background: #e3eee8;
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+.admin__back {
+  margin-top: auto;
+  padding: 10px 14px;
+  border: 1px solid var(--line-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-canvas);
+  font: var(--text-label);
+  text-align: left;
+  transition: border-color 0.15s;
+}
+
+.admin__back:hover {
+  border-color: var(--brand-primary);
+}
+
+.admin__content {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 20px 48px;
+}
+
+@media (min-width: 720px) {
+  .admin {
+    flex-direction: row;
+  }
+
+  .admin__sidebar {
+    flex: 0 0 240px;
+    border-bottom: 0;
+    border-right: 1px solid var(--line-default);
+    padding: 28px 16px;
+  }
+
+  .admin__content {
+    max-width: 960px;
+    padding: 32px 32px 48px;
+  }
+}
+
+.admin__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin__hint {
+  font: var(--text-body);
+  color: var(--ink-tertiary);
+}
+
+.admin__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.admin__stat {
+  padding: 16px;
+  border: 1px solid var(--line-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+}
+
+.admin__stat-value {
+  font: var(--text-display);
+  font-size: 28px;
+}
+
+.admin__stat-label {
+  font: var(--text-label);
+  color: var(--ink-tertiary);
+}
+
+.admin__stat--warn .admin__stat-value {
+  color: #b8321c;
+}
+
+.admin__table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--line-default);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.admin__table th,
+.admin__table td {
+  padding: 12px 14px;
+  text-align: left;
+  font: var(--text-body);
+  border-bottom: 1px solid var(--line-default);
+}
+
+.admin__table th {
+  font: var(--text-label);
+  color: var(--ink-tertiary);
+  text-transform: uppercase;
+}
+
+.admin__badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font: var(--text-label);
+}
+
+.admin__badge--ok {
+  background: #e1f2e7;
+  color: #2e7d4f;
+}
+
+.admin__badge--bad {
+  background: #fde8e3;
+  color: #b8321c;
+}
+
+.admin__badge--wait {
+  background: var(--bg-night-raised);
+  color: var(--ink-inverse-muted);
+}
+
+.admin__questions,
+.admin__facilities {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin__question,
+.admin__facility {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+}
+
+.admin__question-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: var(--text-body);
+}
+
+.admin__question-lang {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--bg-night-raised);
+  color: var(--ink-inverse-muted);
+  font: var(--text-label);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 14px;
+  font: var(--text-heading);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+.btn--primary {
+  background: var(--brand-primary);
+  color: var(--ink-inverse);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 6px 16px rgb(30 90 71 / 25%);
+}
+
+.admin__add-facility {
+  width: fit-content;
+}
